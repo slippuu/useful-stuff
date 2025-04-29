@@ -8,6 +8,7 @@ Just some useful things I've found and collected over the years, mainly as my ow
 
 ## Contents
 - [Move WSL instance to a new computer](##-move-wsl-instance-to-new-computer)
+- [PWSH - Easy Python Venv Activation](##-pwsh---easy-python-venv-activation)
 
 ## Move WSL instance to new computer
 On the original computer:
@@ -33,3 +34,18 @@ Add:
 [user]
 default=<username>
 ```
+## Pwsh - Easy Python Venv Activation
+Add to `$profile`
+```pwsh
+function venv {
+  param (
+    [string]$venvPath
+  )
+  if (Test-Path $venvPath) {
+    & "$venvPath\.venv\Scripts\Activate.ps1
+  } else {
+    Write-Host "Virutal Environment not found. Please rerun from a location with a valid .venv folder."
+  }
+}
+```
+Example usage: `venv .`
