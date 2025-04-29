@@ -42,7 +42,7 @@ function venv {
     [string]$venvPath
   )
   if (Test-Path $venvPath) {
-    & "$venvPath\.venv\Scripts\Activate.ps1
+    & "$venvPath\.venv\Scripts\Activate.ps1"
   } else {
     Write-Host "Virutal Environment not found. Please rerun from a location with a valid .venv folder."
   }
